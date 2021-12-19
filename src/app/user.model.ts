@@ -1,8 +1,7 @@
 export class User {
-    _id: string = '';
-    name: string = '';
-    email: string = '';
+    _id: String = '';
+    name: String = '';
+    email: String = '';
     birthday: Date = new Date;
-    password: string = '';
-    accessToken: string = '';
+    password: String = '';
   }
