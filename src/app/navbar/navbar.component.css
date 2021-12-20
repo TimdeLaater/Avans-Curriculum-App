@@ -8,14 +8,14 @@
   .navbar .navbar-brand:focus {
     color: #ffbbbc;
   }
-  .navbar .navbar-text {
+  .navbar .navbar-brand {
     color: #ecf0f1;
   }
-  .navbar .navbar-text a {
+  .navbar .navbar-brand a {
     color: #ffbbbc;
   }
-  .navbar .navbar-text a:hover,
-  .navbar .navbar-text a:focus {
+  .navbar .navbar-brand a:hover,
+  .navbar .navbar-brand a:focus {
     color: #ffbbbc; 
   }
   .navbar .navbar-nav .nav-link {
