@@ -10,9 +10,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RegisterComponent } from './register/register.component';
+import { VoortgangComponent } from './voortgang/voortgang.component';
+import { CurriculumComponent } from './curriculum/curriculum.component';
+import { StudieplanComponent } from './studieplan/studieplan.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, VoortgangComponent, CurriculumComponent, StudieplanComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
