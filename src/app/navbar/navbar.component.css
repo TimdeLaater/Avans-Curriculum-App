@@ -1,6 +1,7 @@
 .navbar {
     background-color: #c6002a;
-    /* z-index:999; */
+    
+    padding-bottom: 0px;
   }
   .navbar .navbar-brand {
     color: #ecf0f1;
