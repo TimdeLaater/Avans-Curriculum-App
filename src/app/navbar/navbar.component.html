@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+      <a
+        class="navbar-brand"
+        routerLink="/"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >{{ title }}</a
+      >
+      <button
+        class="navbar-toggler hidden-sm-up"
+        type="button"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed"
+        data-target="#navbarsDefault"
+        aria-controls="navbarsDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink=""
+              [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ><img height="25px" width="auto" src="../../assets/Images/avans-logo-white.png"></a
+            >
+          </li>  
+          <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="curriculum"
+                  [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >Curriculum</a
+                >
+              </li>
+          <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="voortgang"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Voortgang</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="studieplan"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Studieplan</a
+              >
+            </li>
+        </ul>
+        <ul *ngIf="!(loggedInUser$)" class="navbar-nav navbar-right"> 
+            <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="login"
+                  [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >Login</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="register"
+                  [routerLinkActive]="['active']"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >Register</a>
+              </li>
+        </ul>
+        <ul *ngIf="loggedInUser$" class="navbar-nav navbar-right">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                  Profile
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="logout()">Logout</button>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
