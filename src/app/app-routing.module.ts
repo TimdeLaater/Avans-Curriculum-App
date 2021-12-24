@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-list.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'users/:userId/studyplans', component: StudyplanListComponent}
     ],
   },
 ];

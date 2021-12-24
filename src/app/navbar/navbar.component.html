@@ -47,10 +47,10 @@
                 >Voortgang</a
               >
             </li>
-            <li class="nav-item">
+            <li *ngIf="loggedInUser$" class="nav-item">
               <a
                 class="nav-link"
-                routerLink="studieplan"
+                [routerLink]="['/users', loggedInUser$._id, 'studyplans']"
                 [routerLinkActive]="['active']"
                 [routerLinkActiveOptions]="{ exact: true }"
                 >Studieplan</a

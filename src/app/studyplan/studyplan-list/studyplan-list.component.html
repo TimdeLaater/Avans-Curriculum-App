@@ -1,0 +1,12 @@
+<div *ngIf="user">
+    <div class="container" *ngFor="let studyplan of studyPlans$">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{studyplan.name}}</h2>
+          <hr class="h-line">
+          <p class="card-text">{{studyplan.details}}</p>
+          <a class="link">Voortgang bekijken</a>
+        </div>
+      </div>
+    </div>
+</div>

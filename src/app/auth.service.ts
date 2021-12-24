@@ -21,8 +21,8 @@ export class AuthService {
   });
 
   constructor(private http: HttpClient,
-    private router: Router, private alertService: AlertService) { 
-      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
+    private router: Router, private alertService: AlertService) {
+      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem(this.CURRENT_USER)!));
       this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -31,7 +31,7 @@ export class AuthService {
 
     return this.http.post(`${environment.SERVER_API_URL}/user/login`, { email, password}, { headers: this.headers}).pipe(map((response: any) => {
       const user = { ...response.user } as User
-      localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem(this.CURRENT_USER, JSON.stringify(user));
       localStorage.setItem('id_token', JSON.stringify(response.token))
       this.currentUserSubject.next(user);
       return user;
@@ -51,7 +51,7 @@ export class AuthService {
 
   logout() {
     console.log("Logging out!")
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(this.CURRENT_USER);
     localStorage.removeItem('id_token');
     this.currentUserSubject.next(null!);
   }

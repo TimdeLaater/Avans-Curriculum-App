@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { Observable } from 'rxjs'
 import { User } from 'src/models/user.model'
 import { AuthService } from '../auth.service'
 
@@ -17,8 +18,8 @@ export class NavbarComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.authService.currentUser.subscribe(x => this.loggedInUser$ = x);
-    console.log("NgOnInit: ", this.loggedInUser$)
+    this.loggedInUser$ = JSON.parse(localStorage.getItem('currentuser')!);
+    console.log(`User logged in as: ${this.loggedInUser$.name}`)
   }
 
   logout(): void {

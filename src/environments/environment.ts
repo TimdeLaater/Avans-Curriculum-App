@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  SERVER_API_URL: 'https://avans-curriculum-api.herokuapp.com'
+  SERVER_API_URL: 'https://avans-curriculum-api.herokuapp.com/api'
   
 };
 
