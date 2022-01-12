@@ -11,9 +11,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RegisterComponent } from './register/register.component';
 import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-list.component';
+import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],

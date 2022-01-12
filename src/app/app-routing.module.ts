@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-list.component';
+import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 const routes: Routes = [
   {
@@ -13,9 +14,10 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent},
+      { path: 'register', component: RegisterComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'users/:userId/studyplans', component: StudyplanListComponent}
+      { path: 'users/:userId/studyplans', component: StudyplanListComponent },
+      { path: 'subjects/:subjectId', component: SubjectDetailComponent },
     ],
   },
 ];

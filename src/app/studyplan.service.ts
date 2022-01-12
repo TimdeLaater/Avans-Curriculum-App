@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class StudyplanService {
-  headers = new HttpHeaders()
+  headers = new HttpHeaders() 
   
   constructor(private http: HttpClient) { }
 
