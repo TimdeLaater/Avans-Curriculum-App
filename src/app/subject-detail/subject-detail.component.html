@@ -1,0 +1,64 @@
+<!-- Alle data in deze pagina is nog HARD-CODED!!! -->
+<div *ngIf="subject$">
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="detail-title col-9">{{ subject$.name }}</h2>
+    </div>
+    <hr class="h-line" />
+    <div class="detail-content row">
+      <div class="detail-paragraph col-9">
+        <h3 class="detail-intertitle">Inhoud</h3>
+        <p class="detail-info">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="detail-box col-3">
+          <div class="detail-box-content">
+          <div class="row detail-box-title">Opleiding(en)</div>
+          <div class="row detail-box-info">{{ subject$.academyCodes[0] }}</div>
+          <hr class="row h-line" />
+          <div class="row detail-box-title">Studiepunten</div>
+          <div class="row detail-box-info">{{subject$.studyPoints}}</div>
+          <hr class="row h-line" />
+          <div class="row detail-box-title">Lesvorm</div>
+          <div class="row detail-box-info">{{ subject$.environment }}</div>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="detail-paragraph col-9">
+        <h3 class="detail-intertitle">Onderdelen</h3>
+        <p class="detail-info">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="detail-paragraph col-9">
+        <h3 class="detail-intertitle">Praktische informatie</h3>
+        <p class="detail-info">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
