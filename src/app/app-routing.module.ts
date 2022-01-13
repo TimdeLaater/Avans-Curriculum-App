@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { ModuleChooseComponent } from './module-choose/module-choose.component';
 import { RegisterComponent } from './register/register.component';
 import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-list.component';
 import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users/:userId/studyplans', component: StudyplanListComponent },
       { path: 'subjects/:subjectId', component: SubjectDetailComponent },
+      { path: 'module/setup', component: ModuleChooseComponent}
     ],
   },
 ];

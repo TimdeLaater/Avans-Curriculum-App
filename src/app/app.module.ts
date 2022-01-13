@@ -12,10 +12,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { RegisterComponent } from './register/register.component';
 import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-list.component';
 import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
+import { ModuleChooseComponent } from './module-choose/module-choose.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
 })
