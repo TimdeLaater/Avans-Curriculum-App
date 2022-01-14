@@ -6,3 +6,4 @@ export class Module {
     detail: String = ''
     subjects: Subject[] = [];
 }
+
