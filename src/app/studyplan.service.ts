@@ -17,3 +17,4 @@ export class StudyplanService {
       .get(`${environment.SERVER_API_URL}/users/${userId}/studyplans`)
   }
 }
+ 

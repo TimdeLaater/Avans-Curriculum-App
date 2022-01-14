@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDrag, CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { Module } from 'src/models/module.model';
+import { ModuleService } from '../module.service';
 
 @Component({
   selector: 'app-module-choose',
@@ -7,67 +9,98 @@ import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@
   styleUrls: ['./module-choose.component.css']
 })
 export class ModuleChooseComponent implements OnInit {
-  tracks = [
+  modules$ : Module[] = [
     {
-      "title": "Todo",
-      "id": "todo",
-      "tasks": [
-        {
-          "id": "first-task",
-          "title": "First Task",
-          "description": "This is my first task"
-        }
-      ]
+      _id: "1",
+      name: "Test Module 4",
+      detail: "Test",
+      subjects: [{
+        _id: "1",
+        academyCodes: ["1"],
+        name: "Subject1",
+        studyPoints: 1,
+        details: "Lorem bla bla bla",
+        environment: "online"
+      },
+    ]
     },
-    {
-      "title": "In Progress",
-      "id": "inprogress",
-      "tasks": [
-        {
-          "id": "seconf-task",
-          "title": "Second Task",
-          "description": "This is my first task"
-        }
-      ]
-    },
-    {
-      "title": "D-Done",
-      "id": "ddone",
-      "tasks": [
-        {
-          "id": "third-task",
-          "title": "Third Task",
-          "description": "This is my first task"
-        }
-      ]
-    },
-    {
-      "title": "QA Pass",
-      "id": "qapass",
-      "tasks": [
-        {
-          "id": "fourth-task",
-          "title": "Fourth Task",
-          "description": "This is my first task"
-        }
-      ]
-    }
-  ]
+  ];
 
-  constructor() { }
+  currentStreet$ : Module[] = [{
+    _id: "1",
+    name: "Test Module 1",
+    detail: "Test",
+    subjects: [{
+      _id: "1",
+      academyCodes: ["1"],
+      name: "Subject1",
+      studyPoints: 1,
+      details: "Lorem bla bla bla",
+      environment: "online"
+    },
+  ]
+  },
+  {
+    _id: "1",
+    name: "Test Module 2",
+    detail: "Test",
+    subjects: [{
+      _id: "1",
+      academyCodes: ["1"],
+      name: "Subject1",
+      studyPoints: 1,
+      details: "Lorem bla bla bla",
+      environment: "online"
+    },
+  ]
+  },
+  new Module(),
+  {
+    _id: "1",
+    name: "Test Module 3",
+    detail: "Test",
+    subjects: [{
+      _id: "1",
+      academyCodes: ["1"],
+      name: "Subject1",
+      studyPoints: 1,
+      details: "Lorem bla bla bla",
+      environment: "online"
+    },
+  ]
+  }
+]
+
+  constructor(private moduleService: ModuleService) { }
 
   ngOnInit(): void {
+    this.getModules();
   }
 
-  onTaskDrop(event: CdkDragDrop<Task[]>) {
+  drop(event: CdkDragDrop<Module[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(event.previousContainer.data,
+      transferArrayItem(
+        event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex);
+        event.currentIndex,
+      );
     }
   }
+
+  PredicateIndexEquals(index: CdkDrag<Module>){
+    return
+  }
+
+  getModules(){
+    this.moduleService.getAllModules().subscribe((data : any) => {
+      console.log(data);
+      this.modules$ = data;
+    }, 
+    (error) => console.log(error));
+  }
+
 
 }
