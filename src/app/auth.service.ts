@@ -26,6 +26,10 @@ export class AuthService {
       this.currentUser = this.currentUserSubject.asObservable();
     }
 
+    get isLoggedIn() {
+      return this.currentUserSubject.asObservable(); // {2}
+    }
+
   login(email: string, password: string) {
     console.log(`login at ${environment.SERVER_API_URL}/user/login`);
 
