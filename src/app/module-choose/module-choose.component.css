@@ -1,51 +1,19 @@
-.example-container {
-  width: 400px;
-  max-width: 100%;
-  margin: 0 25px 25px 0;
-  display: inline-block;
-  vertical-align: top;
+.container {
+  display: grid; 
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "header header header"
+    "content content content"
+    "content content content"; 
 }
 
-.example-list {
-  width: 1000px;
-  max-width: 100%;
-  border: solid 1px #ccc;
-  min-height: 60px;
-  display: flex;
-  flex-direction: row;
-  background: white;
-  border-radius: 4px;
-  overflow: hidden;
-}
+.header { 
+  grid-area: header; }
+.content { grid-area: content; }
 
-.example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: move;
-  background: white;
-  font-size: 14px;
-}
-.example-box-horizontal{
-  padding: 20px 10px;
-  border-right: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: move;
-  background: white;
-  font-size: 14px;
-  flex-grow: 1;
-  flex-basis: 0;
-}
 
 .cdk-drag-preview {
   box-sizing: border-box;

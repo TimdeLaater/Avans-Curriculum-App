@@ -19,7 +19,7 @@ export class NavbarComponent {
 
   ngOnInit(): void {
     this.loggedInUser$ = JSON.parse(localStorage.getItem('currentuser')!);
-    console.log(`User logged in as: ${this.loggedInUser$.name}`)
+    console.log(`User logged in as: ${this.loggedInUser$}`)
   }
 
   logout(): void {

@@ -11,7 +11,6 @@ import { SubjectDetailComponent } from './subject-detail/subject-detail.componen
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'login', component: LoginComponent },
