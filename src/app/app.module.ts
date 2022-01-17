@@ -15,9 +15,10 @@ import { SubjectDetailComponent } from './subject-detail/subject-detail.componen
 import { ModuleChooseComponent } from './module-choose/module-choose.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatCardModule} from '@angular/material/card';
+import { FuzzySearchComponent } from './fuzzy-search/fuzzy-search.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, FuzzySearchComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
