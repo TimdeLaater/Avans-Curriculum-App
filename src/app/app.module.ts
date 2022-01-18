@@ -16,10 +16,12 @@ import { ModuleChooseComponent } from './module-choose/module-choose.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatCardModule} from '@angular/material/card';
 import { AnonymouslayoutComponent } from './anonymouslayout/anonymouslayout.component';
+import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
+  declarations: [DashboardComponent, AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent],
+  imports: [RouterModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
 })

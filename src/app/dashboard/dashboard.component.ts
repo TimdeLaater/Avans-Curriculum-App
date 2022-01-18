@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { User } from 'src/models/user.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  runningMode: string = '';
-  apiUrl: string = '';
+  loggedInUser$!: User
+
 
   constructor() {}
+
   ngOnInit() {
-    this.runningMode = environment.production ? 'production' : 'development';
-    this.apiUrl = environment.SERVER_API_URL;
+    this.loggedInUser$ = JSON.parse(localStorage.getItem('currentuser')!);
   }
 }
