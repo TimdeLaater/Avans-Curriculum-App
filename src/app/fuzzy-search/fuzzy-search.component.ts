@@ -1,36 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import FuzzySearch from 'fuzzy-search'
+import FuzzySearch from 'fuzzy-search';
 
 @Component({
   selector: 'app-fuzzy-search',
   templateUrl: './fuzzy-search.component.html',
-  styleUrls: ['./fuzzy-search.component.css']
+  styleUrls: ['./fuzzy-search.component.css'],
 })
 export class FuzzySearchComponent implements OnInit {
+  public searchInput: any;
+  public results: any;
 
-  results: object[] | undefined;
-  
-  constructor() {
-   }
-
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.searchInput = document.getElementById(
+      'search-input'
+    ) as HTMLInputElement;
   }
 
-  search(input: string): object[] {
-    const people = [{
-      name: {
-        firstName: 'Jesse',
-        lastName: 'Bowen',
+  search() {
+    console.log('werkt');
+    const people = [
+      {
+        name: {
+          firstName: 'Jesse',
+          lastName: 'Bowen',
+        },
+        state: 'Seattle',
       },
-      state: 'Seattle',
-    }];
-    var inputVal = document.getElementById("myInput");
-    const searcher = new FuzzySearch(people, ['name.firstName', 'state'], {
-      caseSensitive: true,
-    });
+      {
+        name: {
+          firstName: 'Klaas',
+          lastName: 'de Vries',
+        },
+        state: 'Seattle',
+      },
+    ];
+    const searcher = new FuzzySearch(
+      people,
+      ['name.firstname', 'name.lastname', 'state'],
+      {
+        caseSensitive: true,
+      }
+    );
 
-    const results = searcher.search(input);
-    return results;
+    this.results = searcher.search(this.searchInput);
   }
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
