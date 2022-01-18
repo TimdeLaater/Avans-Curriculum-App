@@ -8,10 +8,15 @@ import FuzzySearch from 'fuzzy-search'
 })
 export class FuzzySearchComponent implements OnInit {
 
+  results: object[] | undefined;
+  
   constructor() {
    }
 
   ngOnInit(): void {
+  }
+
+  search(input: string): object[] {
     const people = [{
       name: {
         firstName: 'Jesse',
@@ -19,11 +24,13 @@ export class FuzzySearchComponent implements OnInit {
       },
       state: 'Seattle',
     }];
-    
+    var inputVal = document.getElementById("myInput");
     const searcher = new FuzzySearch(people, ['name.firstName', 'state'], {
       caseSensitive: true,
     });
-    const result = searcher.search('ess');
+
+    const results = searcher.search(input);
+    return results;
   }
 
 }
