@@ -14,14 +14,14 @@ import { StudyplanListComponent } from './studyplan/studyplan-list/studyplan-lis
 import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 import { ModuleChooseComponent } from './module-choose/module-choose.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { FuzzySearchComponent } from './fuzzy-search/fuzzy-search.component';
 import { AnonymouslayoutComponent } from './anonymouslayout/anonymouslayout.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent, FuzzySearchComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
