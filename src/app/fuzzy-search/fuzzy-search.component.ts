@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import FuzzySearch from 'fuzzy-search'
 
 @Component({
   selector: 'app-fuzzy-search',
@@ -7,8 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuzzySearchComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
+    const people = [{
+      name: {
+        firstName: 'Jesse',
+        lastName: 'Bowen',
+      },
+      state: 'Seattle',
+    }];
+    
+    const searcher = new FuzzySearch(people, ['name.firstName', 'state'], {
+      caseSensitive: true,
+    });
+    const result = searcher.search('ess');
   }
+
 }
