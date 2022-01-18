@@ -15,6 +15,7 @@ import { SubjectDetailComponent } from './subject-detail/subject-detail.componen
 import { ModuleChooseComponent } from './module-choose/module-choose.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatCardModule} from '@angular/material/card';
+import { FuzzySearchComponent } from './fuzzy-search/fuzzy-search.component';
 import { AnonymouslayoutComponent } from './anonymouslayout/anonymouslayout.component';
 
 @NgModule({
