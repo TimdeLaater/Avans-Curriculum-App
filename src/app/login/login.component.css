@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.img{
+    width: 60%;
+    height: 20vh;
+    margin-left: 20vh;
+    align-self: center;
+    justify-self: center;
+}
+.card{
+    width: 75%;
+    height: 65vh;
+    border-radius: 2%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10vh;
+}
+.card-title{
+    color: rgba(249, 0, 53, 1);
+    font-size: 2vw;
+}
+.info{
+    color: rgba(79, 82, 83, 1);
+    font-size: small;
+    width: 78%;
+}
+body{
+    background-color: rgba(238, 238, 238, 1);
+    background-size: cover;
+    min-height: 100vh;
+}
+.card-container{
+    width: 70%;
+    justify-self: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+.input-label{
+    font-size: large;
+    text-shadow: 0px 0px 1px #000000;
+}
+.btn{
+    background-color: rgba(198, 0, 42, 1);
+    width: 50%;
+    margin-left: 25%;
+}
+.jumbotron{
+    background-color: rgba(238, 238, 238, 1);
+}
+.vertical-center{
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    min-height: 100vh;
+}

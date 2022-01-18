@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+.card-title{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+}
+
+.card-text{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    color: rgba(79, 82, 83, 1);
+}
+
+.card-body{
+    padding: 30px 20px 30px 40px;
+}
+
+.card{
+    margin-top: 20px;
+}
+.container{
+    top: 30px;
+}

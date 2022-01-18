@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header">
+    <img src="./../../assets/Images/1798144.jpg" alt="">
+  </div>
+
+<div class="content">
+  <h2>Current Street</h2>
+  <div *ngFor="let item of currentStreet$; let i = index">
+    <div *ngIf="i != 2">
+      <mat-card> {{ item.name }} </mat-card>
+    </div>
+    <div *ngIf="i == 2">
+      <div cdkDropListGroup>
+        <div
+          cdkDropList
+          [cdkDropListData]="currentStreet$"
+          class="example-list"
+          (cdkDropListDropped)="swap($event)"
+        >
+        <div *ngIf="!item.name">
+          <mat-card cdkDrag> Kies een Module </mat-card>
+        </div>
+        <div *ngIf="item.name">
+          <mat-card cdkDrag> {{ item.name }} </mat-card>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="example-container">
+      <h2>Choose from...</h2>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="modules$"
+        class="example-list"
+        (cdkDropListDropped)="swap($event)"
+      >
+        <div class="example-box" *ngFor="let item of modules$" cdkDrag>
+          <mat-card> {{ item.name }} </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
