@@ -8,6 +8,7 @@ import {
 import { Module } from 'src/models/module.model';
 import { ModuleService } from '../module.service';
 import { AlertService } from '../alert.service';
+import FuzzySearch from 'fuzzy-search';
 
 @Component({
   selector: 'app-module-choose',
@@ -15,6 +16,9 @@ import { AlertService } from '../alert.service';
   styleUrls: ['./module-choose.component.css'],
 })
 export class ModuleChooseComponent implements OnInit {
+  public results: any;
+  public searcher: any;
+  public searchInput: any;
   modules$: Module[] = [
     {
       _id: '1',
@@ -121,38 +125,42 @@ export class ModuleChooseComponent implements OnInit {
   constructor(
     private moduleService: ModuleService,
     private alertService: AlertService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // this.getModules();
+    this.results = this.modules$
+    this.searcher = new FuzzySearch(this.modules$, ['name', '_id'], {
+      caseSensitive: false,
+    });
   }
 
   swap(event: CdkDragDrop<Module[]>) {
     console.log("Calling method");
 
-    if(event.previousContainer.data[event.previousIndex] == this.currentStreet$[0]){
+    if (event.previousContainer.data[event.previousIndex] == this.currentStreet$[0]) {
       return;
     }
 
 
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        2
-      );
-      transferArrayItem(
-        event.container.data,
-        event.previousContainer.data,
-        3,
-        event.previousIndex
-      );
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      2
+    );
+    transferArrayItem(
+      event.container.data,
+      event.previousContainer.data,
+      3,
+      event.previousIndex
+    );
 
-        for(let i =0; i < this.modules$.length; i++){
-          if(this.modules$[i].name === ''){
-            this.modules$.splice(i, 1);
-          }   
-        }     
+    for (let i = 0; i < this.modules$.length; i++) {
+      if (this.modules$[i].name === '') {
+        this.modules$.splice(i, 1);
+      }
+    }
   }
 
   getModules() {
@@ -168,5 +176,17 @@ export class ModuleChooseComponent implements OnInit {
   getRandomColor() {
     var color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
+  }
+
+  onKeyUp(event: any) {
+    if (event == "") {
+      this.results = this.modules$
+    } else {
+      var inputValue = event.target.value;
+      console.log("testOn KEY", inputValue)
+      this.results = this.searcher.search(inputValue)
+    }
+
+    // this.results = this.searcher.search(x.target.value);
   }
 }
