@@ -1,46 +1,107 @@
-<div class="container">
-  <div class="header">
-    <img src="./../../assets/Images/1798144.jpg" alt="">
-  </div>
-
-<div class="content">
-  <h2>Current Street</h2>
-  <div *ngFor="let item of currentStreet$; let i = index">
-    <div *ngIf="i != 2">
-      <mat-card> {{ item.name }} </mat-card>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container"></div>
+  <h1 class="display-4">ACA Wegenbouwer</h1>
+</div>
+<div class="container-fluid" cdkDropListGroup>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="container col-sm-10 col-md-8 col-lg-6">
+        <h5 class="progress-title">Voortgang</h5>
+        <ul class="nav flex-column nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active">Jaar 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Jaar 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Jaar 3</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div *ngIf="i == 2">
-      <div cdkDropListGroup>
-        <div
-          cdkDropList
-          [cdkDropListData]="currentStreet$"
-          class="example-list"
-          (cdkDropListDropped)="swap($event)"
-        >
-        <div *ngIf="!item.name">
-          <mat-card cdkDrag> Kies een Module </mat-card>
-        </div>
-        <div *ngIf="item.name">
-          <mat-card cdkDrag> {{ item.name }} </mat-card>
-        </div>
+    <!-- Content -->
+    <div class="col-md-10">
+      <h2 class="row title">Kies een wegdeel en maak de snelweg af</h2>
+      <br />
+      <div class="row">
+        <div *ngFor="let item of currentStreet$; let i = index">
+          <div *ngIf="i != 2">
+            <h3 class="module-title">periode {{ i + 1 }}</h3>
+            <div class="card"  [style.background-color]="item.color">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="i == 2">
+            <div>
+              <div *ngIf="!item.name">
+                <div
+                  cdkDropList
+                  [cdkDropListData]="currentStreet$"
+                  (cdkDropListDropped)="swap($event)"
+                >
+                  <h3 class="module-title">periode {{ i + 1 }}</h3>
+                  <div class="card image" cdkDrag>
+                    <div class="card-body"></div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="item.name">
+                <div
+                  cdkDropList
+                  [cdkDropListData]="currentStreet$"
+                  (cdkDropListDropped)="swap($event)"
+                >
+                  <h3 class="module-title">periode {{ i + 1 }}</h3>
+                  <div class="card" [style.background-color]="item.color">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <div class="card-body">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
+  <br>
+
+  <!-- Search row -->
   <div class="row">
-    <div class="example-container">
-      <h2>Choose from...</h2>
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <h2 class="title">Zoeken</h2>
+      <input type="text" class="form-control" placeholder="Module zoeken" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="col-md-3"></div>
+  </div>
 
+  <br>
+
+  <!-- Container met items -->
+  <div class="row">
+    <div class="col-md 2"></div>
+    <div class="col-md-10">
       <div
-        cdkDropList
-        [cdkDropListData]="modules$"
-        class="example-list"
-        (cdkDropListDropped)="swap($event)"
-      >
-        <div class="example-box" *ngFor="let item of modules$" cdkDrag>
-          <mat-card> {{ item.name }} </mat-card>
+      cdkDropList
+      [cdkDropListData]="modules$"
+      (cdkDropListDropped)="swap($event)"
+    >
+      <div class="row">
+          <div *ngFor="let item of modules$" cdkDrag>
+            <div class="card" [style.background-color]="item.color">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
