@@ -15,7 +15,6 @@ import { AlertService } from '../alert.service';
   styleUrls: ['./module-choose.component.css'],
 })
 export class ModuleChooseComponent implements OnInit {
-
   modules$: Module[] = [
     {
       _id: '1',
@@ -31,6 +30,7 @@ export class ModuleChooseComponent implements OnInit {
           environment: 'online',
         },
       ],
+      color: this.getRandomColor()
     },
     {
       _id: '1',
@@ -46,6 +46,23 @@ export class ModuleChooseComponent implements OnInit {
           environment: 'online',
         },
       ],
+      color: this.getRandomColor()
+    },
+    {
+      _id: '1',
+      name: 'Test Module 6',
+      detail: 'Test',
+      subjects: [
+        {
+          _id: '1',
+          academyCodes: ['1'],
+          name: 'Subject1',
+          studyPoints: 1,
+          details: 'Lorem bla bla bla',
+          environment: 'online',
+        },
+      ],
+      color: this.getRandomColor()
     },
   ];
 
@@ -64,6 +81,7 @@ export class ModuleChooseComponent implements OnInit {
           environment: 'online',
         },
       ],
+      color: this.getRandomColor()
     },
     {
       _id: '1',
@@ -79,6 +97,7 @@ export class ModuleChooseComponent implements OnInit {
           environment: 'online',
         },
       ],
+      color: this.getRandomColor()
     },
     new Module(),
     {
@@ -95,6 +114,7 @@ export class ModuleChooseComponent implements OnInit {
           environment: 'online',
         },
       ],
+      color: this.getRandomColor()
     },
   ];
 
@@ -108,22 +128,31 @@ export class ModuleChooseComponent implements OnInit {
   }
 
   swap(event: CdkDragDrop<Module[]>) {
-    console.log('Swapping empty card with selected choice!');
-    // Get old target
-    let oldtarget = this.modules$[event.previousIndex];
-    if (this.currentStreet$[event.currentIndex + 2].name == '') {
-      console.log(
-        `The data from index ${
-          this.currentStreet$[event.currentIndex]
-        } is null!`
-      );
-      this.modules$.splice(event.previousIndex, 1);
-    } else {
-      this.modules$[event.previousIndex] =
-        this.currentStreet$[event.currentIndex + 2];
+    console.log("Calling method");
+
+    if(event.previousContainer.data[event.previousIndex] == this.currentStreet$[0]){
+      return;
     }
-    // give the selected card to the current street
-    this.currentStreet$[event.currentIndex + 2] = oldtarget;
+
+
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        2
+      );
+      transferArrayItem(
+        event.container.data,
+        event.previousContainer.data,
+        3,
+        event.previousIndex
+      );
+
+        for(let i =0; i < this.modules$.length; i++){
+          if(this.modules$[i].name === ''){
+            this.modules$.splice(i, 1);
+          }   
+        }     
   }
 
   getModules() {
@@ -134,5 +163,10 @@ export class ModuleChooseComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
   }
 }
