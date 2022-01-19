@@ -87,7 +87,10 @@
 
   <br>
   <div>
-    <input type="checkbox" [checked]="isChecked == true" value="5"
+
+    <input type="checkbox" value="test"
+      (change)="changed($event)">
+    <input type="checkbox" value="6"
       (change)="changed($event)">
   </div>
   <!-- Container met items -->
