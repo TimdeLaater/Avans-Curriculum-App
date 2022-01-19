@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.jumbotron{
+    background-color: rgba(238, 238, 238, 1);
+    height: 100vh;
+    width: 100vw;
+}
+.img{
+    width: 35vw;
+    height: 20vh;
+    margin-left: 3vw;
+    margin-top: 5vh;
+}
+.card-title{
+    color: rgba(79, 82, 83, 1);
+    margin-top: 2vh;
+    height: 2vh;
+}
+.card{
+    height: 100%;
+    width: 65%;
+    border-radius: 2%;
+    font-family: 'Roboto', sans-serif;
+}
+.btn-primary{
+    background-color: rgba(198, 0, 42, 1);
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 2vh;
+}

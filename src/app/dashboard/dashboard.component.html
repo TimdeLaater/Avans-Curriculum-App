@@ -1,8 +1,40 @@
-<div class="starter-template">
-  <h1>Bootstrap starter template</h1>
-  <h3>Info</h3>
-  <p>
-    This app is running in <strong>'{{ runningMode }}'</strong> mode. <br />
-    Environment API URL: <strong>'{{ apiUrl }}'</strong>.<br />
-  </p>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-12">
+      <img class="img" src="./../../assets/Images/avans-logo-red.png" alt="" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 d-flex justify-content-center">
+      <div class="card">
+        <h4 class="card-title text-center">Welkom, {{ loggedInUser$.name }}</h4>
+        <div class="card-body">
+          <div class="container">
+            <ul class="nav flex-column nav-pills">
+              <div class="form-group">
+                <button
+                  [routerLink]="['/module/setup']"
+                  class="btn btn-lg btn-primary btn-block"
+                >
+                  Module kiezen
+                </button>
+                <button
+                  class="btn btn-lg btn-primary btn-block"
+                >
+                  Modules vergelijken
+                </button>
+                <button
+                  class="btn btn-lg btn-primary btn-block"
+                >
+                  Voortgang bekijken
+                </button>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
 </div>
