@@ -18,7 +18,9 @@ import FuzzySearch from 'fuzzy-search';
 export class ModuleChooseComponent implements OnInit {
   public results: any;
   public searcher: any;
+  public isChecked = false;
   public searchInput: any;
+
   modules$: Module[] = [
     {
       _id: '1',
@@ -189,4 +191,17 @@ export class ModuleChooseComponent implements OnInit {
 
     // this.results = this.searcher.search(x.target.value);
   }
+
+  changed(evt: any) {
+    if (!this.isChecked) {
+      this.isChecked = true;
+    } else {
+      this.isChecked = false;
+    }
+    console.log(this.isChecked)
+    console.log(evt.target.value)
+
+
+  }
+
 }
