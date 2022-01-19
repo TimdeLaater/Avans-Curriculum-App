@@ -22,7 +22,7 @@
 .card {
   width: 15vw;
   margin: 0;
-  height: 35vh;
+  height: 15vw;
   border-radius: 0;
 }
 .card-body {
@@ -38,12 +38,14 @@
   font-weight: 800;
   color: rgba(79, 82, 83, 1);
 }
-.card-title {
-  text-align: center;
-  font-family: "Source Sans Pro", sans-serif;
+.card-title{
+  font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 700;
-  margin-top: 2vh;
+  margin-top: 1vw;
+  font-size: 1.5vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .col-title {
   margin-right: 20vw;
@@ -96,27 +98,28 @@
 }
 
 .dividerLine {
-  border: 10px dashed #ffffff;
-  border-style: none none dashed;
-  color: #ffffff00;
-  background-color: #ffffff00;
+  border: .6vw dashed #ffffff; 
+  border-style: none none dashed; 
+  color: #ffffff00; 
+  background-color: #ffffff00; 
   position: absolute;
-  bottom: 55px;
-  width: 95%;
-  left: 5px;
+  bottom: 4vw;
+  width: 14vw;
+  left: .5vw;
 }
 
 .emergencyLane {
-  border: 5px solid #ffffff;
+  border: .6vw solid #ffffff;
+  border-style: none none solid; 
   position: absolute;
-  bottom: 160px;
-  width: 100%;
+  bottom: 9.5vw;
+  width: 15vw;
   left: -1px;
 }
 
 .iconTruck {
-  position: relative;
-  width: 170px;
-  bottom: 95px;
-  left: 10px;
+  position: absolute;
+  width: 10vw;
+  bottom: 6.3vw;
+  left: 1vw;
 }
