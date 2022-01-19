@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent],
+  declarations: [DashboardComponent, AppComponent, LoginComponent, NavbarComponent, LayoutComponent, RegisterComponent, StudyplanListComponent, SubjectDetailComponent, ModuleChooseComponent, AnonymouslayoutComponent, FuzzySearchComponent],
   imports: [RouterModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule, DragDropModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
