@@ -95,3 +95,30 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+.dividerLine {
+  border: 10px dashed #ffffff; 
+  border-style: none none dashed; 
+  color: #ffffff00; 
+  background-color: #ffffff00; 
+  position: absolute;
+  bottom: 55px;
+  width: 195px;
+  left: 5px;
+}
+
+.emergencyLane {
+  border: 5px solid #ffffff; 
+  position: absolute;
+  bottom: 160px;
+  width: 100%;
+  left: -1px;
+}
+
+.iconTruck {
+  position: relative;
+  width: 170px;
+  bottom: 95px;
+  left: 10px;
+}
+

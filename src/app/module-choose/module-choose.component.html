@@ -2,6 +2,7 @@
   <div class="container"></div>
   <h1 class="display-4">ACA Wegenbouwer</h1>
 </div>
+
 <div class="container-fluid" cdkDropListGroup>
   <div class="row">
     <div class="col-md-2">
@@ -22,7 +23,7 @@
     </div>
     <!-- Content -->
     <div class="col-md-10">
-      <h2 class="row title">Kies een wegdeel en maak de snelweg af</h2>
+      <h2 class="row title">Kies een wegdeel voor periode 3 en maak de snelweg af</h2>
       <br />
       <div class="row">
         <div *ngFor="let item of currentStreet$; let i= index">
@@ -33,15 +34,14 @@
               <div class="card-body">
                 <p class="card-text"></p>
               </div>
+              <hr class="emergencyLane" />
+              <hr class="dividerLine" />
             </div>
           </div>
           <div *ngIf="i == 2">
             <div>
               <div *ngIf="!item.name">
-                <div
-                  cdkDropList
-                  [cdkDropListData]="currentStreet$"
-                  (cdkDropListDropped)="swap($event)">
+                <div cdkDropList [cdkDropListData]="currentStreet$" (cdkDropListDropped)="swap($event)">
                   <h3 class="module-title">periode {{ i + 1 }}</h3>
                   <div class="card image" cdkDrag>
                     <div class="card-body"></div>
@@ -49,15 +49,14 @@
                 </div>
               </div>
               <div *ngIf="item.name">
-                <div
-                  cdkDropList
-                  [cdkDropListData]="currentStreet$"
-                  (cdkDropListDropped)="swap($event)">
+                <div cdkDropList [cdkDropListData]="currentStreet$" (cdkDropListDropped)="swap($event)">
                   <h3 class="module-title">periode {{ i + 1 }}</h3>
                   <div class="card" [style.background-color]="item.color">
                     <h5 class="card-title">{{ item.name }}</h5>
-                    <div class="card-body">
-                    </div>
+                    <div class="card-body"></div>
+                    <hr class="emergencyLane" />
+                    <img src="../assets/Images/trucks/GreenTruck.png" alt="" class="iconTruck">
+                    <hr class="dividerLine" />
                   </div>
                 </div>
               </div>
@@ -75,37 +74,11 @@
     <div class="col-md-3"></div>
     <div class="col-md-5">
       <h2 class="title">Zoeken</h2>
-      <input (keyup)="onKeyUp($event)" type="text" class="form-control"
-        placeholder="Module zoeken" aria-label="Username"
-        aria-describedby="basic-addon1">
+      <input (keyup)="onKeyUp($event)" type="text" class="form-control" placeholder="Module zoeken"
+        aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="col-md-3"></div>
   </div>
-
-  <div class="row">
-    <div class="col-md 2"></div>
-    <div class="col-md-10">
-      <div
-        cdkDropList
-        [cdkDropListData]="results"
-        (cdkDropListDropped)="swap($event)">
-        <div class="row">
-          <div *ngFor="let result of results">
-
-
-            <div class="card" [style.background-color]="result.color">
-              <h5 class="card-title">{{ result.name }}</h5>
-              <div class="card-body">
-                <p class="card-text"></p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
   <br>
 
@@ -113,10 +86,7 @@
   <div class="row">
     <div class="col-md 2"></div>
     <div class="col-md-10">
-      <div
-        cdkDropList
-        [cdkDropListData]="modules$"
-        (cdkDropListDropped)="swap($event)">
+      <div cdkDropList [cdkDropListData]="modules$" (cdkDropListDropped)="swap($event)">
         <div class="row">
           <div *ngFor="let item of modules$" cdkDrag>
             <div class="card" [style.background-color]="item.color">
@@ -124,6 +94,10 @@
               <div class="card-body">
                 <p class="card-text"></p>
               </div>
+              <hr class="emergencyLane" />
+              <script src="imageRandomizer.js"></script>
+              <img src="../assets/Images/trucks/GreenTruck.png" alt="" class="iconTruck">
+              <hr class="dividerLine" />
             </div>
           </div>
         </div>
