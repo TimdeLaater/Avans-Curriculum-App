@@ -32,7 +32,7 @@ export class ModuleChooseComponent implements OnInit {
   modules$: Module[] = [
     {
       _id: '1',
-      name: 'Test Module 4',
+      name: 'Wiskunde integreren',
       detail: 'Test',
       subjects: [
         {
@@ -48,7 +48,7 @@ export class ModuleChooseComponent implements OnInit {
     },
     {
       _id: '2',
-      name: 'Test Module 5',
+      name: 'Informatiesystemen 2',
       detail: 'Test',
       subjects: [
         {
@@ -64,7 +64,7 @@ export class ModuleChooseComponent implements OnInit {
     },
     {
       _id: '1',
-      name: 'Test Module 6',
+      name: 'Statistiek',
       detail: 'Test',
       subjects: [
         {
@@ -83,7 +83,7 @@ export class ModuleChooseComponent implements OnInit {
   currentStreet$: Module[] = [
     {
       _id: '1',
-      name: 'Test Module 1',
+      name: 'Android',
       detail: 'Test',
       subjects: [
         {
@@ -99,7 +99,7 @@ export class ModuleChooseComponent implements OnInit {
     },
     {
       _id: '1',
-      name: 'Test Module 2',
+      name: 'Bestuurlijke',
       detail: 'Test',
       subjects: [
         {
@@ -116,7 +116,7 @@ export class ModuleChooseComponent implements OnInit {
     new Module(),
     {
       _id: '1',
-      name: 'Test Module 3',
+      name: 'Bedrijfseconomie',
       detail: 'Test',
       subjects: [
         {
