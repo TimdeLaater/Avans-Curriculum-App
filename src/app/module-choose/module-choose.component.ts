@@ -20,6 +20,7 @@ export class ModuleChooseComponent implements OnInit {
   public searcher: any;
   public isChecked = false;
   public searchInput: any;
+  public searchResults: any;
 
   modules$: Module[] = [
     {
@@ -39,7 +40,7 @@ export class ModuleChooseComponent implements OnInit {
       color: this.getRandomColor()
     },
     {
-      _id: '1',
+      _id: '2',
       name: 'Test Module 5',
       detail: 'Test',
       subjects: [
@@ -132,6 +133,7 @@ export class ModuleChooseComponent implements OnInit {
   ngOnInit(): void {
     // this.getModules();
     this.results = this.modules$
+    this.searchResults = this.modules$;
     this.searcher = new FuzzySearch(this.modules$, ['name', '_id'], {
       caseSensitive: false,
     });
@@ -184,9 +186,13 @@ export class ModuleChooseComponent implements OnInit {
     if (event == "") {
       this.results = this.modules$
     } else {
+      this.searcher = new FuzzySearch(this.modules$, ['name', '_id'], {
+        caseSensitive: false,
+      });
       var inputValue = event.target.value;
       console.log("testOn KEY", inputValue)
       this.results = this.searcher.search(inputValue)
+      this.searchResults = this.results
     }
 
     // this.results = this.searcher.search(x.target.value);
@@ -195,8 +201,13 @@ export class ModuleChooseComponent implements OnInit {
   changed(evt: any) {
     if (!this.isChecked) {
       this.isChecked = true;
+      this.searcher = new FuzzySearch(this.searchResults, ['name', '_id', '..subjects'], {
+        caseSensitive: false,
+      });
+      this.results = this.searcher.search(evt.target.value)
     } else {
       this.isChecked = false;
+      this.results = this.searcher.search("")
     }
     console.log(this.isChecked)
     console.log(evt.target.value)
