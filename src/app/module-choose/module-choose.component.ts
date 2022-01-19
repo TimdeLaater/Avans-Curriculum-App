@@ -10,6 +10,7 @@ import { ModuleService } from '../module.service';
 import { AlertService } from '../alert.service';
 import FuzzySearch from 'fuzzy-search';
 
+
 @Component({
   selector: 'app-module-choose',
   templateUrl: './module-choose.component.html',
@@ -18,7 +19,16 @@ import FuzzySearch from 'fuzzy-search';
 export class ModuleChooseComponent implements OnInit {
   public results: any;
   public searcher: any;
+  public nameIsChecked = false;
+  public numberIsChecked: any;
   public searchInput: any;
+  public searchResults: any;
+  public pev: any;
+
+
+  public filters: any[] = [
+  ]
+
   modules$: Module[] = [
     {
       _id: '1',
@@ -37,7 +47,7 @@ export class ModuleChooseComponent implements OnInit {
       color: this.getRandomColor()
     },
     {
-      _id: '1',
+      _id: '2',
       name: 'Test Module 5',
       detail: 'Test',
       subjects: [
@@ -130,6 +140,7 @@ export class ModuleChooseComponent implements OnInit {
   ngOnInit(): void {
     // this.getModules();
     this.results = this.modules$
+    this.searchResults = this.modules$;
     this.searcher = new FuzzySearch(this.modules$, ['name', '_id'], {
       caseSensitive: false,
     });
@@ -179,14 +190,47 @@ export class ModuleChooseComponent implements OnInit {
   }
 
   onKeyUp(event: any) {
-    if (event == "") {
-      this.results = this.modules$
-    } else {
-      var inputValue = event.target.value;
-      console.log("testOn KEY", inputValue)
-      this.results = this.searcher.search(inputValue)
+    if (this.pev != null) {
+      this.removeFilter(this.pev)
     }
-
-    // this.results = this.searcher.search(x.target.value);
+    this.pev = event.target.value
+    this.addFilter(event.target.value)
   }
+
+  changed(evt: any) {
+    if (evt.target.checked) {
+      this.addFilter(evt.target.value)
+    } else {
+      this.removeFilter(evt.target.value)
+    }
+  }
+
+
+
+  apply() {
+    console.log("aplly")
+    this.results = this.modules$
+    this.filters.forEach((value) => {
+      console.log(value)
+      this.searcher = new FuzzySearch(this.results, ['name', '_id', '..subjects'], {
+        caseSensitive: false,
+      });
+      this.results = this.searcher.search(value)
+    });
+    // this.filteredData = this.data
+    // for (let f in this.filters) {
+    //     this.filteredData = this.filteredData.filter(f)
+    // }
+  }
+  addFilter(f: any) {
+    this.filters.push(f)
+    this.apply()
+  }
+  removeFilter(f: any) {
+    const idx = this.filters.indexOf(f)
+    this.filters.splice(idx, 1)
+    this.apply()
+  }
+
+
 }
