@@ -33,7 +33,7 @@ export class ModuleChooseComponent implements OnInit {
     {
       _id: '1',
       name: 'Wiskunde integreren',
-      detail: 'Test',
+      detail: 'Wiskunde',
       subjects: [
         {
           _id: '1',
@@ -49,7 +49,7 @@ export class ModuleChooseComponent implements OnInit {
     {
       _id: '2',
       name: 'Informatiesystemen 2',
-      detail: 'Test',
+      detail: 'info',
       subjects: [
         {
           _id: '1',
@@ -65,7 +65,7 @@ export class ModuleChooseComponent implements OnInit {
     {
       _id: '1',
       name: 'Statistiek',
-      detail: 'Test',
+      detail: 'Rekenen',
       subjects: [
         {
           _id: '1',
@@ -84,7 +84,7 @@ export class ModuleChooseComponent implements OnInit {
     {
       _id: '1',
       name: 'Android',
-      detail: 'Test',
+      detail: 'App',
       subjects: [
         {
           _id: '1',
@@ -100,7 +100,7 @@ export class ModuleChooseComponent implements OnInit {
     {
       _id: '1',
       name: 'Bestuurlijke',
-      detail: 'Test',
+      detail: 'Politiek',
       subjects: [
         {
           _id: '1',
@@ -212,7 +212,7 @@ export class ModuleChooseComponent implements OnInit {
     this.results = this.modules$
     this.filters.forEach((value) => {
       console.log(value)
-      this.searcher = new FuzzySearch(this.results, ['name', '_id', '..subjects'], {
+      this.searcher = new FuzzySearch(this.results, ['name', 'detail', '..subjects'], {
         caseSensitive: false,
       });
       this.results = this.searcher.search(value)
