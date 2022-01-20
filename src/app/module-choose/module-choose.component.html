@@ -42,7 +42,8 @@
           <div *ngIf="i == 2">
             <div>
               <div *ngIf="!item.name">
-                <div cdkDropList [cdkDropListData]="currentStreet$" (cdkDropListDropped)="swap($event)">
+                <div cdkDropList [cdkDropListData]="currentStreet$"
+                  (cdkDropListDropped)="swap($event)">
                   <h3 class="module-title">periode {{ i + 1 }}</h3>
                   <div class="card image" cdkDrag>
                     <div class="card-body"></div>
@@ -50,13 +51,15 @@
                 </div>
               </div>
               <div *ngIf="item.name">
-                <div cdkDropList [cdkDropListData]="currentStreet$" (cdkDropListDropped)="swap($event)">
+                <div cdkDropList [cdkDropListData]="currentStreet$"
+                  (cdkDropListDropped)="swap($event)">
                   <h3 class="module-title">periode {{ i + 1 }}</h3>
                   <div class="card" [style.background-color]="item.color">
                     <h5 class="card-title">{{ item.name }}</h5>
                     <div class="card-body"></div>
                     <hr class="emergencyLane" />
-                    <img src="../assets/Images/trucks/GreenTruck.png" alt="" class="iconTruck">
+                    <img src="../assets/Images/trucks/GreenTruck.png" alt=""
+                      class="iconTruck">
                     <hr class="dividerLine" />
                   </div>
                 </div>
@@ -75,22 +78,27 @@
     <div class="col-md-3 align-left">
       <table>
         <tr>
-          <input type="checkbox" value="test" id="filter1" class="filter" (change)="changed($event)">
-          <label for="filter1"> Test</label></tr>
+          <input type="checkbox" value="android" id="filter1" class="filter"
+            (change)="changed($event)">
+          <label for="filter1"> Android</label></tr>
         <tr>
-          <input type="checkbox" value="6" id="filter2" class="filter" (change)="changed($event)">
-          <label for="filter2"> 6</label></tr>
+          <input type="checkbox" value="wiskunde" id="filter2" class="filter"
+            (change)="changed($event)">
+          <label for="filter2"> Wiskunde</label></tr>
         <tr>
-          <input type="checkbox" value="5" id="filter3" class="filter" (change)="changed($event)">
-          <label for="filter3"> 5</label></tr>
+          <input type="checkbox" value="app" id="filter3" class="filter"
+            (change)="changed($event)">
+          <label for="filter3"> App</label></tr>
         <tr>
-          <input type="checkbox" value="4" id="filter4" class="filter" (change)="changed($event)">
-          <label for="filter4"> 4</label></tr>
+          <input type="checkbox" value="Rekenen" id="filter4" class="filter"
+            (change)="changed($event)">
+          <label for="filter4"> Rekenen</label></tr>
       </table>
     </div>
     <div class="col-md-5">
       <h2 class="title">Zoeken</h2>
-      <input (keyup)="onKeyUp($event)" type="text" class="form-control" placeholder="Module zoeken"
+      <input (keyup)="onKeyUp($event)" type="text" class="form-control"
+        placeholder="Module zoeken"
         aria-label="Username" aria-describedby="basic-addon1">
     </div>
   </div>
@@ -99,7 +107,8 @@
   <div class="row">
     <div class="col-md 2"></div>
     <div class="col-md-10">
-      <div cdkDropList [cdkDropListData]="results" (cdkDropListDropped)="swap($event)">
+      <div cdkDropList [cdkDropListData]="results"
+        (cdkDropListDropped)="swap($event)">
         <div class="row">
           <div *ngFor="let item of results" cdkDrag>
             <div class="card" [style.background-color]="item.color">
@@ -109,7 +118,8 @@
               </div>
               <hr class="emergencyLane" />
               <script src="imageRandomizer.js"></script>
-              <img src="../assets/Images/trucks/GreenTruck.png" alt="" class="iconTruck">
+              <img src="../assets/Images/trucks/GreenTruck.png" alt=""
+                class="iconTruck">
               <hr class="dividerLine" />
             </div>
           </div>
